@@ -14,8 +14,8 @@
   <button ion-button (click)="getGeo()">get geolocation</button>
 
   <ion-list>
-    <ion-item *ngFor="let geoItem of listOfCoordinates, let i = index">
-      <p>{{geoItem}}</p>
+    <ion-item *ngFor="let geoItem of listOfCordinats, let i = index">
+      <p>{{geoItem | json}}</p>
     </ion-item>
   </ion-list>
 </ion-content>

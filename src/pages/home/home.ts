@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { Coordinats } from "../../model/coordinats";
 
 @Component({
   selector: 'page-home',
@@ -9,7 +10,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 export class HomePage {
   lat: any;
   lng: any;
-  listOfCoordinates: [] = [];
+  listOfCordinats: Coordinats[] = [];
 
   // fahrten: Fahrt[];
 
@@ -28,8 +29,11 @@ export class HomePage {
     this.geolocation.getCurrentPosition().then( pos => {
       this.lat = pos.coords.latitude;
       this.lng = pos.coords.longitude;
-      this.listOfCoordinates.push("lat: " + this.lat + ", lng: " + this.lng + ".");
-      console.log("gelocation: " + this.listOfCoordinates);
+      // latAndLngStr = "lat: " + this.lat + ", lng: " + this.lng + ".";
+      this.listOfCordinats.push(new Coordinats(this.lat, this.lng));
+      console.log("getGeolocation was exicuted");
+      console.log("gelocation: " + this.listOfCordinats);
+      alert("you location ist now: lat: " + this.lat+ ", long: " + this.lng);
     }).catch( err => console.log(err));
   }
 
