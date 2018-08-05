@@ -7,7 +7,15 @@
 </ion-header>
 
 <ion-content padding>
-  <H1>Test Daten:</H1>
-  <p>Breitengrad: {{ lat }}</p>
-  <p>Längengrad: {{ lng }}</p>
+  <H1>test data:</H1>
+  <p>latitude: {{ lat }}</p>
+  <p>longitude: {{ lng }}</p>
+
+  <button ion-button (click)="getGeo()">get geolocation</button>
+
+  <ion-list>
+    <ion-item *ngFor="let geoItem of listOfCoordinates, let i = index">
+      <p>{{geoItem}}</p>
+    </ion-item>
+  </ion-list>
 </ion-content>
