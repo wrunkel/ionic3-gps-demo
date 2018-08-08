@@ -26,7 +26,8 @@ export class HomePage {
   }
 
   getGeo() {
-    this.geolocation.getCurrentPosition().then( pos => {
+    // this.geolocation.getCurrentPosition().then( pos => {
+      this.geolocation.getCurrentPosition({ enableHighAccuracy: true, timeout: 30000 }).then( pos => {
       this.lat = pos.coords.latitude;
       this.lng = pos.coords.longitude;
       // latAndLngStr = "lat: " + this.lat + ", lng: " + this.lng + ".";
